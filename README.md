@@ -1,10 +1,10 @@
 # lua-resty-opencage-geocoder
 
-This Lua module provides a simple client for the OpenCage forward/reverse geocoding API, to be used with [Openresty](https://openresty.org/en/).
+This Lua module provides a simple client for the OpenCage forward/reverse geocoding API, to be used with [OpenResty](https://openresty.org/en/).
 
 # Installation
 
-To install this module, run the following command using the Openresty package manager:
+To install this module, run the following command using the OpenResty package manager:
 
 ```bash
 opm get nmdguerreiro/lua-resty-opencage-geocoder
