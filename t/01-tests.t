@@ -33,9 +33,6 @@ sub read_file {
     $cert;
 }
 
-our $TestCertificate = read_file("t/cert/test.crt");
-our $TestCertificateKey = read_file("t/cert/test.key");
-
 our $SuccessResponse = read_file("t/responses/success_response.json");
 our $RateExceededResponse = read_file("t/responses/rate_exceeded_response.json");
 
@@ -95,11 +92,7 @@ __DATA__
     }
 
 --- user_files eval
-">>> test.key
-$::TestCertificateKey
->>> test.crt
-$::TestCertificate
->>> success_response.json
+">>> success_response.json
 $::SuccessResponse
 >>> rate_exceeded_response.json
 $::RateExceededResponse"
@@ -165,11 +158,7 @@ Brandenburg Gate, Pariser Platz 1, 10117 Berlin, Germany
     }
 
 --- user_files eval
-">>> test.key
-$::TestCertificateKey
->>> test.crt
-$::TestCertificate
->>> success_response.json
+">>> success_response.json
 $::SuccessResponse
 >>> rate_exceeded_response.json
 $::RateExceededResponse"
@@ -222,10 +211,7 @@ Brandenburg Gate, Pariser Platz 1, 10117 Berlin, Germany
     }
 
 --- user_files eval
-">>> test.key
-$::TestCertificateKey
->>> test.crt
-$::TestCertificate
+"$::TestCertificate
 >>> success_response.json
 $::SuccessResponse
 >>> rate_exceeded_response.json
@@ -277,11 +263,7 @@ GET /rate_exceeded
     }
 
 --- user_files eval
-">>> test.key
-$::TestCertificateKey
->>> test.crt
-$::TestCertificate
->>> success_response.json
+">>> success_response.json
 $::SuccessResponse
 >>> rate_exceeded_response.json
 $::RateExceededResponse"
