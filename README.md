@@ -6,7 +6,7 @@ This Lua module provides a simple client for the OpenCage forward/reverse geocod
 
 To install this module, run the following command using the Openresty package manager:
 
-```
+```bash
 opm get nmdguerreiro/lua-resty-opencage-geocoder
 ```
 
@@ -17,7 +17,7 @@ See the [sample nginx configuration file](nginx_sample.conf). It contains an exa
 
 After restaring `nginx` you should be able to get results:
 
-```
+```bash
 $ curl localhost:8080
 
 
@@ -28,7 +28,7 @@ Result: {"timestamp":{"created_http":"Sat, 24 Feb 2018 19:21:44 GMT","created_un
 
 To perform a forward geocoding request, all you need to do is instantiate the client and make the `geocode` call as is shown below:
 
-```
+```lua
 local geocoder = require "opencage.geocoder"
 
 local gc = geocoder.new({
@@ -47,7 +47,7 @@ Remember to close the client, so any underlying connections can be closed when y
 
 Similarly, to issue a reverse geocoding request, all you need to do is instantiate the client and make the `reverse_geocode` call as is shown below:
 
-```
+```lua
 local geocoder = require "opencage.geocoder"
 
 local lat, long = 52.5162767, 13.3777025
@@ -72,7 +72,7 @@ Calls to `geocode` and `reverse_geocode` return three values:
 
 For convenience, the status codes are available on the client object itself and are defined as per below (and in-line with the [API guide](https://geocoder.opencagedata.com/api#codes)):
 
-```
+```lua
 gc.status_ok = 200
 gc.status_invalid_request = 400
 gc.status_quota_exceeded = 402
@@ -95,7 +95,7 @@ So, you can handle errors like so:
 # Parameters
 
 You can supply any additional parameters to help improve your results, as is described in the [API guide](https://geocoder.opencagedata.com/api#forward-opt). For example:
-```
+```lua
 local geocoder = require "opencage.geocoder"
 
 local gc = geocoder.new({
