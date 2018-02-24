@@ -9,7 +9,7 @@ start() {
   fi
 
   echo 'Starting service…' >&2
-  cp nginx_sample.conf t/servroot/ && mkdir -p t/servroot/lib && cp -R lib/opencage/ t/servroot/lib
+  cp nginx_sample.conf t/servroot/
   nginx -p `pwd`/t/servroot -c nginx_sample.conf
   echo 'Service started' >&2
 }
