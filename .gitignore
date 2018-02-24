@@ -1,0 +1,4 @@
+t/servroot/
+t/error.log
+lua-opencage-geocoder*
+luacov*
