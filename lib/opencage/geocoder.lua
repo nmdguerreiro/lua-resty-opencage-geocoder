@@ -9,7 +9,7 @@ local mt = { __index = _M }
 
 function _M._result(self, res, err)
     if not res then
-        ngx.log(ngx.ERR, "Error while calling Opencage: " .. err)
+        ngx.log(ngx.ERR, "Error while calling OpenCage API: " .. err)
         return nil, self.status_unexpected_error, err
     else
         local decoded = cjson.decode(res.body)
@@ -28,15 +28,15 @@ function _M.new(options)
     }
 
     -- set error code aliases
-    options.status_unexpected_error = -1
-    options.status_ok = 200
-    options.status_invalid_request = 400
-    options.status_quota_exceeded = 402
-    options.status_invalid_key = 403
-    options.status_timeout = 408
-    options.status_request_too_long = 410
-    options.status_rate_exceeded = 429
-    options.status_internal_server_error = 503
+    params.status_unexpected_error = -1
+    params.status_ok = 200
+    params.status_invalid_request = 400
+    params.status_quota_exceeded = 402
+    params.status_invalid_key = 403
+    params.status_timeout = 408
+    params.status_request_too_long = 410
+    params.status_rate_exceeded = 429
+    params.status_internal_server_error = 503
 
     return setmetatable(params, mt)
 end

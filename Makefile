@@ -15,6 +15,7 @@ install: all
 	$(INSTALL) lib/opencage/*.lua $(DESTDIR)/$(LUA_LIB_DIR)/opencage/
 
 test: all
+	rm -rf t/servroot/*
 	util/lua-releng
 	PATH=$(OPENRESTY_PREFIX)/nginx/sbin:$$PATH TEST_NGINX_NO_SHUFFLE=1 prove -I../test-nginx/lib -r $(TEST_FILE)
 
