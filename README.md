@@ -13,9 +13,13 @@ opm get nmdguerreiro/lua-resty-opencage-geocoder
 # Sample usage
 
 See the [sample nginx configuration file](nginx_sample.conf). It contains an example of how to make calls to the OpenCage API.
-*Note:* You'll need to replace your API key in the configuration file before starting `nginx`.
+*Note:* You'll need to replace your API key in the configuration file before starting `nginx`. Once you've done that, you can run:
 
-After restarting `nginx` you should be able to get some results:
+```bash
+./nginx_sample.sh
+```
+
+After starting `nginx` you should be able to get some results:
 
 ```bash
 $ curl localhost:8080
