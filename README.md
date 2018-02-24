@@ -15,7 +15,7 @@ opm get nmdguerreiro/lua-resty-opencage-geocoder
 See the [sample nginx configuration file](nginx_sample.conf). It contains an example of how to make calls to the OpenCage API.
 *Note:* You'll need to replace your API key in the configuration file before starting `nginx`.
 
-After restaring `nginx` you should be able to get results:
+After restarting `nginx` you should be able to get some results:
 
 ```bash
 $ curl localhost:8080
@@ -84,12 +84,12 @@ gc.status_internal_server_error = 503
 ```
 
 So, you can handle errors like so:
-```
-    local res, status, err = gc:geocode("Brandenburg Gate", params)
+```lua
+local res, status, err = gc:geocode("Brandenburg Gate", params)
 
-    if (status = gc.status_invalid_key) then
-        ngx.log(ngx.ERR, "It seems we forgot to set our API key correctly :-)")
-    end
+if (status = gc.status_invalid_key) then
+    ngx.log(ngx.ERR, "It seems we forgot to set our API key correctly :-)")
+end
 ```
 
 # Parameters
@@ -108,6 +108,18 @@ local res, status, err = gc:geocode("Brandenburg Gate", params)
 gc.close()
 ```
 
-# Licence
+# Connection settings
 
+This module depends on [lua-resty-http](), which enables you to configure connection and request timeouts.
+To set the timeout, use the `timeout` parameter:
+
+```lua
+
+local gc = geocoder.new({
+  key = "REPLACE WITH YOUR KEY",
+  timeout = 5000, -- maximum timeout in milliseconds
+})
+```
+
+# Licence
 MIT

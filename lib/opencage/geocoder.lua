@@ -27,6 +27,14 @@ function _M.new(options)
         ssl_verify = false
     }
 
+    if options.timeout then
+        params.httpc:set_timeout(options.timeout)
+    end
+
+    if options.max_idle_timeout and options.pool_size then
+        params.httpc:set_keepalive(options.max_idle_timeout, options.pool_size)
+    end
+
     -- set error code aliases
     params.status_unexpected_error = -1
     params.status_ok = 200
