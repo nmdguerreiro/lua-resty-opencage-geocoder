@@ -98,7 +98,7 @@ end
 
 # Parameters
 
-You can supply any additional parameters to help improve your results, as is described in the [API guide](https://geocoder.opencagedata.com/api#forward-opt). For example:
+You can supply any additional parameters to help improve your results, as is described in the [API guide](https://opencagedata.com/api#forward-opt). For example:
 ```lua
 local geocoder = require "opencage.geocoder"
 
